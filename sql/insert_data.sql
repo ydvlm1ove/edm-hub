@@ -2,4 +2,4 @@
 
 INSERT INTO artists (id, name, genre, is_seen) VALUES (1, 'Swedish House Mafia', 'HOUSE', 1);
 
-INSERT INTO artists (name, genre) VALUES ('Dimitri Vegas', Bigroom house);
+INSERT INTO artists (id, name, genre) VALUES (2, 'Dimitri Vegas', 'Bigroom house HardStyel');
