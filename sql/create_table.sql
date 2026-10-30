@@ -5,9 +5,10 @@ CREATE DATABASE EDM_Portfolio;
 CREATE TABLE artists (
     id              INT             NOT NULL   AUTO_INCREMENT COMMENT  'ID',
     name            VARCHAR(100)    NOT NULL   UNIQUE         COMMENT  'アーティスト名',
-    genre           VARCHAR(50),                              COMMENT  'ジャンル',
+    main_genre      VARCHAR(50)                               COMMENT  'メインジャンル',
+    sub_genre      VARCHAR(50)                                COMMENT  'サブジャンル',
     is_seen         TINYINT DEFAULT 0                         COMMENT  '生で見たかどうか',
-    description     TEXT,                                     COMMENT  '説明/備考',
+    description     TEXT                                      COMMENT  '説明/備考',
 
     PRIMARY KEY(id)
 )
