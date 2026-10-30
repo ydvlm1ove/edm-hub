@@ -1,5 +1,5 @@
 -- INSERT保存用
 
-INSERT INTO artists (id, name, main_genre, sub_genre, is_seen) VALUES (1, 'Swedish House Mafia', 'house', 'progressive_house', 1);
+INSERT INTO artists (id, name, is_seen, description) VALUES (1, 'Swedish House Mafia', 1, 'SwedenのDJトリオ。Axwell, Steve Angello, Sebastian Ingrossoの3人で構成される。');
 
-INSERT INTO artists (id, name, main_genre, sub_genre) VALUES (2, 'Dimitri Vegas', 'house', 'bigroom_house/HardStyel');
+INSERT INTO artists (id, name, is_seen, description) VALUES (2, 'Dimitri Vegas', 0, 'BelgiumのDJ。Dimitri Vegas & Like MikeのDimitri Vegasとしても活動。');
