@@ -8,8 +8,8 @@
 
 EDM (Electronic Dance Music)
 │
-├── 🔲 1. HOUSE（EDMの最大の根幹・BPM 120-130）
-│    ├── 🏛 Classic / Chicago House（ハウスの起源・ソウルフル）
+--1. HOUSE（EDMの最大の根幹・BPM 120-130）
+- 🏛 Classic / Chicago House（ハウスの起源・ソウルフル）
 │    ├── 🎹 Progressive House
 │    │    ├── Festive / Melodic Progressive（★Avicii, Martin Garrix, SHM黄金期）
 │    │    └── Dark / Club Progressive（★Axwell /\ Ingrosso, 近年SHM, Axtone）
