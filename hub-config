@@ -19,66 +19,56 @@ edm-hub/
 │   └── manifest.json      # PWA（スマホアプリ化）設定ファイル
 │
 └── sql/                   # データベーススクリプト
-    ├── 01_create_tables.sql  # テーブル定義（DDL）
-    └── 02_insert_data.sql    # 初期データ投入スクリプト（DML）
-
+    ├── create_tables.sql  # テーブル定義（DDL）
+    ├── insert_artists.sql # 重複機能完成するまでの一時的な保管用
+    ├── insert_genres.sql  # 重複機能完成するまでの一時的な保管用
+    ├── insert_live_set.sql# 重複機能完成するまでの一時的な保管用
 
 開発環境・ツール: VS Code, GitHub Copilot
 
 データベース詳細
-
-MySQLにて構築された5つのテーブル構成（多対多のリレーション構造）。
+- MySQLにて構築された5つのテーブル構成（多対多のリレーション構造）
 
 1. artists (アーティスト基本情報)
 
 id (INT, PRIMARY KEY, AUTO_INCREMENT) : アーティストID
-
 name (VARCHAR(100), UNIQUE, NOT NULL) : アーティスト名
-
 is_seen (TINYINT, DEFAULT 0) : 生で見たか（1: 見た, 0: 未鑑賞）
-
 description (TEXT) : 紹介文・推しポイント
+
 
 2. genres (ジャンルマスター)
 
 id (INT, PRIMARY KEY, AUTO_INCREMENT) : ジャンルID
-
 name (VARCHAR(50), UNIQUE, NOT NULL) : 表示名（例: Progressive House）
-
 slug (VARCHAR(50), UNIQUE, NOT NULL) : システム用識別子（例: progressive_house）
-
 category (VARCHAR(20), NOT NULL) : 5大ジャンル大分類（例: House, Bass等）
+
 
 3. artist_genres (アーティスト×ジャンル中間テーブル)
 
 artist_id (INT, FOREIGN KEY -> artists.id)
-
 genre_id (INT, FOREIGN KEY -> genres.id)
-
 PRIMARY KEY (artist_id, genre_id)
 ※1人のアーティストに複数のジャンルを紐付け可能。
+
 
 4. live_sets (ライブセット動画)
 
 id (INT, PRIMARY KEY, AUTO_INCREMENT) : 動画ID
-
 artist_id (INT, FOREIGN KEY -> artists.id) : 紐づくアーティストID
-
 title (VARCHAR(255), NOT NULL) : 動画タイトル（例: Tomorrowland 2024）
-
 youtube_url (VARCHAR(255), NOT NULL) : YouTube動画URL
+
 
 5. festivals (フェス情報・参加記録)
 
 id (INT, PRIMARY KEY, AUTO_INCREMENT) : フェスID
-
 name (VARCHAR(100), NOT NULL) : フェス名
-
 location (VARCHAR(100)) : 開催地・会場
-
 event_date (DATE / DATETIME) : 開催日時
-
 memo (TEXT) : タイムテーブルメモ・体験談記録
+
 
 各ページ詳細
 
