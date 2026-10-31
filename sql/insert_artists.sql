@@ -41,7 +41,7 @@ INSERT INTO artists (id, name, is_seen, description) VALUES
 (34, 'Skrillex', 0, ''),
 (35, 'Steve Aoki', 1, ''),
 (36, 'Sub Focus', 0, ''),
-(37, 'Tiësto', 1, ''),
+(37, 'Tiesto', 1, ''),
 (38, 'Timmy Trumpet', 1, ''),
 (39, 'TNT', 0, ''),
 (40, 'Tungevaag', 0, ''),
