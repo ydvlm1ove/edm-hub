@@ -1,1 +1,109 @@
+edm-hub/
+│
+├── app.py                 # Flaskメインアプリケーション（ルーティング・バックエンド処理）
+│
+├── templates/             # HTMLテンプレート（画面ファイル）
+│   ├── index.html         # トップ画面（ダッシュボード・メインタイマー）
+│   ├── artists.html       # アーティスト図鑑画面（一覧・検索・CRUD管理）
+│   ├── livesets.html      # YouTubeライブセット専用画面
+│   ├── my_records.html    # 参戦ログ & 生見た人図鑑（アンロック表示）
+│   ├── world.html         # ワールドフェス & クラブ画面（タイムゾーン・タイマー）
+│   └── admin.html         # データ管理・編集画面
+│
+├── static/                # 静的ファイル（CSS / JavaScript / アセット）
+│   ├── css/
+│   │   └── style.css      # スタイルシート（ダークモード・ネオンデザイン）
+│   ├── js/
+│   │   └── main.js        # フロントエンド処理（カウントダウン・動的制御）
+│   ├── img/               # アーティスト画像・アイコン
+│   └── manifest.json      # PWA（スマホアプリ化）設定ファイル
+│
+└── sql/                   # データベーススクリプト
+    ├── 01_create_tables.sql  # テーブル定義（DDL）
+    └── 02_insert_data.sql    # 初期データ投入スクリプト（DML）
 
+
+開発環境・ツール: VS Code, GitHub Copilot
+
+データベース詳細
+
+MySQLにて構築された5つのテーブル構成（多対多のリレーション構造）。
+
+1. artists (アーティスト基本情報)
+
+id (INT, PRIMARY KEY, AUTO_INCREMENT) : アーティストID
+
+name (VARCHAR(100), UNIQUE, NOT NULL) : アーティスト名
+
+is_seen (TINYINT, DEFAULT 0) : 生で見たか（1: 見た, 0: 未鑑賞）
+
+description (TEXT) : 紹介文・推しポイント
+
+2. genres (ジャンルマスター)
+
+id (INT, PRIMARY KEY, AUTO_INCREMENT) : ジャンルID
+
+name (VARCHAR(50), UNIQUE, NOT NULL) : 表示名（例: Progressive House）
+
+slug (VARCHAR(50), UNIQUE, NOT NULL) : システム用識別子（例: progressive_house）
+
+category (VARCHAR(20), NOT NULL) : 5大ジャンル大分類（例: House, Bass等）
+
+3. artist_genres (アーティスト×ジャンル中間テーブル)
+
+artist_id (INT, FOREIGN KEY -> artists.id)
+
+genre_id (INT, FOREIGN KEY -> genres.id)
+
+PRIMARY KEY (artist_id, genre_id)
+※1人のアーティストに複数のジャンルを紐付け可能。
+
+4. live_sets (ライブセット動画)
+
+id (INT, PRIMARY KEY, AUTO_INCREMENT) : 動画ID
+
+artist_id (INT, FOREIGN KEY -> artists.id) : 紐づくアーティストID
+
+title (VARCHAR(255), NOT NULL) : 動画タイトル（例: Tomorrowland 2024）
+
+youtube_url (VARCHAR(255), NOT NULL) : YouTube動画URL
+
+5. festivals (フェス情報・参加記録)
+
+id (INT, PRIMARY KEY, AUTO_INCREMENT) : フェスID
+
+name (VARCHAR(100), NOT NULL) : フェス名
+
+location (VARCHAR(100)) : 開催地・会場
+
+event_date (DATE / DATETIME) : 開催日時
+
+memo (TEXT) : タイムテーブルメモ・体験談記録
+
+各ページ詳細
+
+1. トップ画面 (/)
+ヘッダーナビゲーション: 各ページへの動線リンク。
+メインカウントダウン: Tomorrowlandなど主要フェスまでのリアルタイムタイマー。
+クイックステータス: 登録数および「生で見た」達成率の可視化。
+ピックアップコンテンツ: おすすめYouTubeライブセットおよび最新ニュース。
+
+2. アーティスト図鑑 (/artists)
+一覧・絞り込み表示: ジャンル別タグ絞り込みおよびアーティスト名検索機能。
+詳細モーダル/カード: 紹介文（description）、代表曲、YouTube動画の試聴。
+CRUD管理機能: 画面からの新規アーティスト追加・更新・削除。
+
+3. YouTubeライブセット専用ページ (/livesets)
+ドロップダウン選択: 全アーティストの五十音/アルファベット順セレクトボックス。
+連動表示: 選択したアーティストに紐づく登録済みライブセット動画のタイトル・埋め込みプレイヤー一覧を表示。
+
+4. 参戦ログ & 生見た人図鑑 (/my-records)
+アンロック表示: 生で見たアーティスト（is_seen = 1）のみ明るく表示し、未鑑賞はダークアウト表示。
+フェス参戦記録: 過去に参加したフェスの日付、会場、タイムテーブル、メモ・思い出記録。
+
+5. ワールドフェス & クラブ (/world)
+海外・国内フェス情報: Tomorrowland, EDC, Ultraなどの開催時期と詳細。
+タイムゾーン換算タイマー: 海外フェスや生配信を日本時間へ自動換算するリアルタイムタイマー。
+
+6. データ管理画面 (/admin)
+- 直感的なデータ更新: アーティストの紹介文編集、YouTubeリンクの追加、is_seen フラグのワンタップ切り替えを行う管理者用ページ。
