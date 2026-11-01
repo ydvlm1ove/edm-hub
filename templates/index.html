@@ -3,83 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDM HUB - Home</title>
-    <!-- CSSファイルの読み込み -->
-    <link rel="stylesheet" href="../static/css/style.css">
+    <title>EDM Hub</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- ① ヘッダー / ナビゲーションバー -->
-    <header class="navbar">
-        <div class="logo">EDM HUB 🎧</div>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">トップ</a></li>
-                <li><a href="artists.html">アーティスト図鑑</a></li>
-                <li><a href="my_records.html">参戦・見た人記録</a></li>
-                <li><a href="world.html">ワールドフェス & クラブ</a></li>
-                <li><a href="admin.html">管理</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main class="container">
-        <!-- ② ヒーローセクション & メインカウントダウン -->
-        <section class="hero-section">
-            <h1>NEXT BIG FESTIVAL</h1>
-            <h2 class="fest-title">Tomorrowland 2027 🇧🇪</h2>
-            
-            <div class="countdown-container">
-                <div class="time-box"><span id="days">000</span><p>DAYS</p></div>
-                <div class="time-box"><span id="hours">00</span><p>HOURS</p></div>
-                <div class="time-box"><span id="minutes">00</span><p>MINS</p></div>
-                <div class="time-box"><span id="seconds">00</span><p>SECS</p></div>
-            </div>
-        </section>
-
-        <!-- ③ ステータス概要（ダッシュボード） -->
-        <section class="status-grid">
-            <div class="card status-card">
-                <h3>登録アーティスト</h3>
-                <p class="status-num">42 <span class="unit">名</span></p>
-            </div>
-            <div class="card status-card">
-                <h3>生で見られた</h3>
-                <p class="status-num highlight">18 <span class="unit">名</span></p>
-            </div>
-            <div class="card status-card">
-                <h3>コレクト率</h3>
-                <p class="status-num">42.8 <span class="unit">%</span></p>
-            </div>
-        </section>
-
-        <!-- ④ 2カラムコンテンツエリア（動画 & メモ） -->
-        <div class="content-grid">
-            <!-- ピックアップ動画 -->
-            <section class="card video-section">
-                <h2>FEATURED LIVE SET 🔥</h2>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <p class="video-caption">Martin Garrix @ Tomorrowland 2024</p>
-            </section>
-
-            <!-- 最新メモ・ニュース -->
-            <section class="card news-section">
-                <h2>NEWS & MEMO 📝</h2>
-                <ul class="news-list">
-                    <li><span class="date">2026.11.01</span> フェス用航空券の検索スタート</li>
-                    <li><span class="date">2026.10.25</span> SHMの最新セットリスト追加完了</li>
-                    <li><span class="date">2026.10.16</span> EDM HUB プロジェクト始動！</li>
-                </ul>
-            </section>
-        </div>
-    </main>
-
-    <!-- ⑤ フッター -->
-    <footer>
-        <p>&copy; 2026 EDM HUB. Created for EDM Fans.</p>
-    </footer>
-
+    <div class="header">
+        <h1 class="logo">My EDM</h1>
+        <h3 class="subtitle">HOME</h3>
+        <h3 class="subtitle">EVENTS</h3>
+        <h3 class="subtitle">MUSIC</h3>
+        <h3 class="subtitle">LIFESTYLE</h3>
+    </div>
+    <div class="content">
+        <h2>最新ニュース</h2>
+        <p>ここに最新のEDMニュースを表示します。</p>
+    </div>
 </body>
 </html>
