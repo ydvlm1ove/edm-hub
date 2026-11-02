@@ -35,3 +35,27 @@ CREATE TABLE artist_genres (
     FOREIGN KEY(artist_id) REFERENCES artists(id) ON DELETE CASCADE,
     FOREIGN KEY(genre_id) REFERENCES genres(id) ON DELETE CASCADE
 );
+
+-- ライブセットテーブル
+CREATE TABLE artist_live_sets (
+    id          INT          NOT NULL AUTO_INCREMENT COMMENT 'ID',
+    artist_id   INT          NOT NULL                COMMENT 'どのアーティストの動画か (artists.id)',
+    title       VARCHAR(255) NOT NULL                COMMENT '動画タイトル (例: Tomorrowland 2024)',
+    youtube_url VARCHAR(255) NOT NULL                COMMENT 'YouTube URL',
+
+    PRIMARY KEY(id),
+    FOREIGN KEY(artist_id) REFERENCES artists(id) ON DELETE CASCADE
+);
+
+-- フェスティバルテーブル
+CREATE TABLE festivals (
+    id          INT             NOT NULL AUTO_INCREMENT COMMENT 'フェスID',
+    name        VARCHAR(100)    NOT NULL                COMMENT 'フェス名 (例: Tomorrowland 2027)',
+    country     VARCHAR(100)                            COMMENT '開催国',
+    city_venue  VARCHAR(100)                            COMMENT '開催都市/会場',
+    event_date  DATE            NOT NULL                COMMENT '開催日・開始日',
+    timetable   TEXT                                    COMMENT 'タイムテーブルメモ',
+    memo        TEXT                                    COMMENT '感想・思い出メモ・準備メモ',
+
+    PRIMARY KEY(id)
+);
