@@ -4,82 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EDM HUB - Home</title>
-    <!-- CSSファイルの読み込み -->
+    <!-- CSSファイルの読み込み（Flask環境想定） -->
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
 
-    <!-- ① ヘッダー / ナビゲーションバー -->
+    <!-- トップヘッダー (Header / Navigation)  -->
     <header class="navbar">
-        <div class="logo">EDM HUB 🎧</div>
+        <div class="logo">EDM HUB</div>
         <nav>
             <ul>
-                <li><a href="index.html" class="active">トップ</a></li>
-                <li><a href="artists.html">アーティスト図鑑</a></li>
-                <li><a href="my_records.html">参戦・見た人記録</a></li>
-                <li><a href="world.html">ワールドフェス & クラブ</a></li>
-                <li><a href="admin.html">管理</a></li>
+                <li><a href="/" class="active">TOP</a></li>
+                <li><a href="/artists">Artists</a></li>
+                <li><a href="/livesets">Livesets</a></li>
+                <li><a href="/my-records">Records</a></li>
+                <li><a href="/world">WorldFestival/Clubs</a></li>
+                <li><a href="/admin">admin</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- ヒーローセクション (Hero Section)  -->
+    <section class="hero-cover">
+        <!-- 特大アイキャッチ画像 -->
+        <img class="hero-img" src="../static/image/Photos-SWEDISH-HOUSE-MAFIA-Ullevi.jpg" alt="Swedish House Mafia">
+        <div class="hero-overlay">
+            <span class="badge-featured">SPOTLIGHT ARTIST</span>
+            <h1 class="hero-title">SWEDISH HOUSE MAFIA</h1>
+            <p class="hero-subtitle">"Ullevi 2026"</p>
+        </div>
+    </section>
+
+    <!-- メインコンテンツコンテナ -->
     <main class="container">
-        <!-- ② ヒーローセクション & メインカウントダウン -->
-        <section class="hero-section">
-            <h1>NEXT BIG FESTIVAL</h1>
-            <h2 class="fest-title">Tomorrowland 2027 🇧🇪</h2>
-            
-            <div class="countdown-container">
-                <div class="time-box"><span id="days">000</span><p>DAYS</p></div>
-                <div class="time-box"><span id="hours">00</span><p>HOURS</p></div>
-                <div class="time-box"><span id="minutes">00</span><p>MINS</p></div>
-                <div class="time-box"><span id="seconds">00</span><p>SECS</p></div>
+
+
+        <!-- カウントダウンセクション -->
+        <section class="card countdown-section">
+            <!-- タブ切り替えボタン -->
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="switchTab('world', event)">WORLD TOP FEST</button>
+                <button class="tab-btn" onclick="switchTab('japan', event)">JAPAN FEST</button>
+            </div>
+
+            <!-- タブコンテンツ 世界のフェス -->
+            <div id="tab-world" class="tab-content active">
+                <div class="fest-header">
+                    <span class="badge badge-world">WORLD</span>
+                    <h2 class="fest-title">Tomorrowland Winter 2027 🇧🇪</h2>
+                    <p class="fest-location">France / Alpe d'Huez</p>
+                </div>
+                <div class="countdown-container">
+                    <div class="time-box"><span id="world-days">000</span><p>DAYS</p></div>
+                    <div class="time-box"><span id="world-hours">00</span><p>HOURS</p></div>
+                    <div class="time-box"><span id="world-mins">00</span><p>MINS</p></div>
+                    <div class="time-box"><span id="world-secs">00</span><p>SECS</p></div>
+                </div>
+            </div>
+
+            <!-- タブコンテンツ 日本のフェス -->
+            <div id="tab-japan" class="tab-content">
+                <div class="fest-header">
+                    <span class="badge badge-japan">JAPAN</span>
+                    <h2 class="fest-title">GMO sonic Japan 2027 🇯🇵</h2>
+                    <p class="fest-location">Japan / Saitama</p>
+                </div>
+                <div class="countdown-container">
+                    <div class="time-box"><span id="japan-days">000</span><p>DAYS</p></div>
+                    <div class="time-box"><span id="japan-hours">00</span><p>HOURS</p></div>
+                    <div class="time-box"><span id="japan-mins">00</span><p>MINS</p></div>
+                    <div class="time-box"><span id="japan-secs">00</span><p>SECS</p></div>
+                </div>
             </div>
         </section>
 
-        <!-- ③ ステータス概要（ダッシュボード） -->
+        <!-- 4. クイックステータス (Quick Status)      -->
         <section class="status-grid">
             <div class="card status-card">
-                <h3>登録アーティスト</h3>
+                <h3>Registered Artists</h3>
                 <p class="status-num">42 <span class="unit">名</span></p>
             </div>
             <div class="card status-card">
-                <h3>生で見られた</h3>
-                <p class="status-num highlight">18 <span class="unit">名</span></p>
-            </div>
-            <div class="card status-card">
-                <h3>コレクト率</h3>
+                <h3>Collection Rate</h3>
                 <p class="status-num">42.8 <span class="unit">%</span></p>
             </div>
         </section>
 
-        <!-- ④ 2カラムコンテンツエリア（動画 & メモ） -->
+
+        <!-- カラムエリア (Video & Memo)     -->
         <div class="content-grid">
-            <!-- ピックアップ動画 -->
+            <!-- ライブセット -->
             <section class="card video-section">
-                <h2>FEATURED LIVE SET 🔥</h2>
+                <h2>FEATURED LIVE SET</h2>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                    <img class="top-video-img" src="https://img.youtube.com/vi/hA64dJhHbxY/maxresdefault.jpg" alt="YouTube video thumbnail">
+                    <a href="https://www.youtube.com/watch?v=hA64dJhHbxY" target="_blank" rel="noopener" class="play-btn">
+                        ▶ WATCH ON YOUTUBE
+                    </a>
                 </div>
-                <p class="video-caption">Martin Garrix @ Tomorrowland 2024</p>
+                <div class="video-info">
+                    <p class="video-caption">Swedish House Mafia Live @Head Trip 2026</p>
+                    <a href="/livesets" class="btn-more">他のセットを見る &rarr;</a>
+                </div>
             </section>
 
             <!-- 最新メモ・ニュース -->
             <section class="card news-section">
-                <h2>NEWS & MEMO 📝</h2>
+                <h2>NEWS & MEMO</h2>
                 <ul class="news-list">
-                    <li><span class="date">2026.11.01</span> フェス用航空券の検索スタート</li>
-                    <li><span class="date">2026.10.25</span> SHMの最新セットリスト追加完了</li>
-                    <li><span class="date">2026.10.16</span> EDM HUB プロジェクト始動！</li>
+                    <li>
+                        <span class="date">2026.10.29</span>
+                        <p>EDM HUB制作開始</p>
+                    </li>
                 </ul>
             </section>
         </div>
+
     </main>
 
-    <!-- ⑤ フッター -->
-    <footer>
-        <p>&copy; 2026 EDM HUB. Created for EDM Fans.</p>
+    <!-- フッター (Spotify ＆ Copyright)       -->
+    <footer class="bottom-site-footer">
+        <!-- 🎵 Spotify クイックリンクバナー -->
+        <div class="spotify-banner">
+            <a href="https://open.spotify.com/" target="_blank" rel="noopener" class="spotify-link">
+                <span class="spotify-icon">🎵</span> LISTEN ON SPOTIFY
+            </a>
+        </div>
+
+        <p class="copyright">&copy; 2026 EDM HUB. Created for EDM Fans.</p>
     </footer>
 
+    <!-- JS: タブ切り替え処理 -->
+    <script>
+        function switchTab(tabName, event) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+
+            document.getElementById('tab-' + tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>

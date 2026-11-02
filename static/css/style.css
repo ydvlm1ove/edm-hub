@@ -1,15 +1,18 @@
-/* 全体ベース設定 */
+/* ========================================== */
+/* 1. 全体ベース設定 (SHM Monotone Base)      */
+/* ========================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
-    background-color: #0f0f13; /* 背景：ダークグレー */
-    color: #f0f0f5;
+    background-color: #0a0a0c; /* 重厚感のある漆黒 */
+    color: #e6e6ee;
     line-height: 1.6;
+    padding-bottom: 0;
 }
 
 a {
@@ -17,154 +20,324 @@ a {
     text-decoration: none;
 }
 
-/* ① ヘッダー・ナビゲーション */
+/* メインコンテンツコンテナ (中央寄せ) */
+.container {
+    max-width: 1100px;
+    margin: 3rem auto 2rem auto;
+    padding: 0 1.5rem;
+}
+
+/* モノトーン共通カードデザイン */
+.card {
+    background-color: #121216;
+    border: 1px solid #22222a;
+    border-radius: 4px; /* 丸みを少しシャープに */
+    padding: 1.8rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* ========================================== */
+/* 2. 🌐 トップヘッダー (Header / Navigation)  */
+/* ========================================== */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 2rem;
-    background-color: #16161f;
-    border-bottom: 1px solid #2a2a3a;
+    padding: 1.2rem 2.5rem;
+    background-color: rgba(10, 10, 12, 0.95);
+    border-bottom: 1px solid #1a1a22;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #00f0ff; /* ネオンブルー */
-    text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+    font-size: 1.3rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-transform: uppercase;
 }
 
 .navbar nav ul {
     display: flex;
     list-style: none;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .navbar nav a {
-    font-size: 0.95rem;
-    color: #a0a0b0;
-    transition: color 0.3s;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: #777788;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
 }
 
-.navbar nav a:hover, .navbar nav a.active {
-    color: #00f0ff;
-    font-weight: bold;
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 0.3rem;
 }
 
-/* コンテナ（中央寄せ） */
-.container {
-    max-width: 1100px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+/* ========================================== */
+/* 3. 🖼️ 特大ヒーローセクション (Hero Cover)    */
+/* ========================================== */
+.hero-cover {
+    position: relative;
+    width: 100%;
+    height: 65vh;
+    min-height: 400px;
+    max-height: 600px;
+    overflow: hidden;
+    background-color: #000000;
 }
 
-/* ② ヒーローセクション & タイマー */
-.hero-section {
-    text-align: center;
-    padding: 2.5rem 1rem;
-    background: linear-gradient(135deg, #181824 0%, #0d0d14 100%);
-    border-radius: 12px;
-    border: 1px solid #2a2a3c;
-    margin-bottom: 2rem;
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(40%) brightness(75%); /* SHM風モノトーン調整 */
+    transition: filter 0.5s ease;
 }
 
-.hero-section h1 {
-    font-size: 0.9rem;
+.hero-cover:hover .hero-img {
+    filter: grayscale(0%) brightness(85%);
+}
+
+.hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 4rem 2.5rem 2.5rem 2.5rem;
+    background: linear-gradient(to top, rgba(10, 10, 12, 1) 0%, rgba(10, 10, 12, 0.5) 60%, rgba(10, 10, 12, 0) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.badge-featured {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.25rem 0.7rem;
     letter-spacing: 2px;
-    color: #ff007f; /* ネオンピンク */
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-radius: 2px;
 }
 
-.fest-title {
-    font-size: 2rem;
+.hero-title {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: #ffffff;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    font-size: 0.95rem;
+    color: #9999aa;
+    margin-top: 0.6rem;
+    letter-spacing: 1px;
+}
+
+/* ========================================== */
+/* 4. ⏱️ カウントダウン (Monotone Tabs)       */
+/* ========================================== */
+.countdown-section {
+    border: 1px solid #2a2a35;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #1f1f28;
+    padding-bottom: 1rem;
+}
+
+.tab-btn {
+    flex: 1;
+    background: #08080a;
+    color: #666677;
+    border: 1px solid #1a1a24;
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    color: #ffffff;
+    border-color: #444455;
+}
+
+.tab-btn.active {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+.tab-content {
+    display: none;
+    text-align: center;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fest-header {
     margin-bottom: 1.5rem;
 }
 
+.badge {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    border-radius: 2px;
+}
+
+.badge-world { background-color: #333344; color: #ffffff; }
+.badge-japan { background-color: #ffffff; color: #000000; }
+
+.fest-title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin: 0.4rem 0;
+    color: #ffffff;
+}
+
+.fest-location {
+    font-size: 0.85rem;
+    color: #777788;
+    letter-spacing: 1px;
+}
+
+/* 白黒ミニマルタイマー */
 .countdown-container {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.2rem;
+    margin-top: 1rem;
 }
 
 .time-box {
-    background: #0b0b10;
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    min-width: 75px;
-    border: 1px solid #33334d;
+    background: #000000;
+    padding: 1.2rem 1rem;
+    border-radius: 4px;
+    min-width: 90px;
+    border: 1px solid #22222c;
 }
 
 .time-box span {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #00f0ff;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #ffffff;
+    display: block;
+    line-height: 1;
 }
 
 .time-box p {
-    font-size: 0.7rem;
-    color: #808099;
+    font-size: 0.65rem;
+    color: #666677;
+    margin-top: 0.5rem;
+    letter-spacing: 2px;
+    font-weight: 700;
 }
 
-/* カードパーツ共通 */
-.card {
-    background-color: #161622;
-    border: 1px solid #262636;
-    border-radius: 10px;
-    padding: 1.5rem;
-}
-
-/* ③ ステータスグリッド */
+/* ========================================== */
+/* 5. 📊 クイックステータス (Status Cards)    */
+/* ========================================== */
 .status-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
+    gap: 1.2rem;
+    margin: 2rem 0;
 }
 
 .status-card {
     text-align: center;
+    transition: border-color 0.2s ease;
+}
+
+.status-card:hover {
+    border-color: #444455;
 }
 
 .status-card h3 {
-    font-size: 0.85rem;
-    color: #9090a8;
+    font-size: 0.8rem;
+    color: #777788;
+    letter-spacing: 1.5px;
     margin-bottom: 0.5rem;
+    text-transform: uppercase;
 }
 
 .status-num {
-    font-size: 1.8rem;
-    font-weight: bold;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #ffffff;
 }
 
 .status-num.highlight {
-    color: #ff007f;
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 6px;
 }
 
 .unit {
     font-size: 0.85rem;
     font-weight: normal;
-    color: #707088;
+    color: #666677;
 }
 
-/* ④ 2カラムレイアウト（スマホ時は自動で縦並び） */
+/* ========================================== */
+/* 6. 🎬 ＆ 📝 2カラムエリア (Content Grid)   */
+/* ========================================== */
 .content-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 1.5rem;
+    margin-bottom: 3rem;
 }
 
-@media (max-width: 768px) {
-    .content-grid {
-        grid-template-columns: 1fr;
-    }
+.content-grid h2 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
 }
 
-/* YouTube動画レスポンシブ表示 */
 .video-container {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* 16:9のアスペクト比 */
-    margin: 1rem 0 0.5rem 0;
+    padding-top: 56.25%;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #000000;
+    border: 1px solid #22222c;
 }
 
 .video-container iframe {
@@ -173,38 +346,167 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 6px;
+    border: none;
+}
+
+.video-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .video-caption {
     font-size: 0.85rem;
-    color: #a0a0b5;
+    color: #9999aa;
 }
 
-/* ニュース・メモ */
+/* 親要素のコンテナ（基準位置） */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 アスペクト比 */
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #000000;
+    border: 1px solid #22222c;
+}
+
+/* 中央配置の再生ボタン */
+.play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* 画像より前面に表示 */
+    
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 0.8rem 1.6rem;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* ホバー時の効果（白黒反転） */
+.play-btn:hover {
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.top-video-img {
+    width: 100%;
+    height: 10%;
+    border-radius: 4px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.btn-more {
+    font-size: 0.8rem;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+}
+
+.btn-more:hover {
+    opacity: 0.7;
+}
+
+/* メモ一覧 */
 .news-list {
     list-style: none;
-    margin-top: 1rem;
 }
 
 .news-list li {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #222233;
-    font-size: 0.85rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid #1a1a22;
+}
+
+.news-list li:last-child {
+    border-bottom: none;
 }
 
 .news-list .date {
-    color: #00f0ff;
+    display: block;
+    color: #ffffff;
     font-size: 0.75rem;
-    margin-right: 0.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 0.2rem;
 }
 
-/* ⑤ フッター */
-footer {
+.news-list p {
+    font-size: 0.85rem;
+    color: #888899;
+}
+
+/* ========================================== */
+/* 7. 🦶 フッター ＆ Spotify (Footer)          */
+/* ========================================== */
+.bottom-site-footer {
+    background-color: #000000;
+    border-top: 1px solid #1a1a22;
+    padding: 3rem 1rem;
+    margin-top: 4rem;
     text-align: center;
-    padding: 2rem;
-    color: #606075;
-    font-size: 0.8rem;
-    border-top: 1px solid #1a1a26;
-    margin-top: 3rem;
+}
+
+.spotify-banner {
+    margin-bottom: 1.5rem;
+}
+
+.spotify-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: #121216;
+    color: #ffffff;
+    border: 1px solid #333344;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 0.7rem 1.8rem;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.spotify-link:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+.copyright {
+    font-size: 0.75rem;
+    color: #444455;
+    letter-spacing: 1px;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    .navbar nav ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hero-title {
+        font-size: 2rem;
+    }
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
 }
