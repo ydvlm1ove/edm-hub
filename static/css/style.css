@@ -1,6 +1,4 @@
-/* ========================================== */
-/* 1. 全体ベース設定 (SHM Monotone Base)      */
-/* ========================================== */
+/* 1. 全体ベース設定 */
 * {
     margin: 0;
     padding: 0;
@@ -36,9 +34,8 @@ a {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
 }
 
-/* ========================================== */
-/* 2. 🌐 トップヘッダー (Header / Navigation)  */
-/* ========================================== */
+/* トップヘッダー (Header / Navigation)  */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -82,9 +79,8 @@ a {
     padding-bottom: 0.3rem;
 }
 
-/* ========================================== */
-/* 3. 🖼️ 特大ヒーローセクション (Hero Cover)    */
-/* ========================================== */
+/* 特大ヒーローセクション (Hero Cover)    */
+
 .hero-cover {
     position: relative;
     width: 100%;
@@ -149,9 +145,8 @@ a {
     letter-spacing: 1px;
 }
 
-/* ========================================== */
-/* 4. ⏱️ カウントダウン (Monotone Tabs)       */
-/* ========================================== */
+/* カウントダウン (Monotone Tabs)       */
+
 .countdown-section {
     border: 1px solid #2a2a35;
 }
@@ -265,9 +260,8 @@ a {
     font-weight: 700;
 }
 
-/* ========================================== */
-/* 5. 📊 クイックステータス (Status Cards)    */
-/* ========================================== */
+/* クイックステータス (Status Cards)    */
+
 .status-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -310,9 +304,8 @@ a {
     color: #666677;
 }
 
-/* ========================================== */
-/* 6. 🎬 ＆ 📝 2カラムエリア (Content Grid)   */
-/* ========================================== */
+/* カラムエリア (Content Grid)   */
+
 .content-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -453,7 +446,7 @@ a {
     color: #888899;
 }
 
-/* 7. 🦶 フッター ＆ Spotify (Footer)          */
+/* フッター ＆ Spotify (Footer)          */
 .bottom-site-footer {
     background-color: #000000;
     border-top: 1px solid #1a1a22;
@@ -493,6 +486,8 @@ a {
     letter-spacing: 1px;
 }
 
+
+
 /* レスポンシブ調整 */
 @media (max-width: 768px) {
     .navbar {
@@ -511,4 +506,101 @@ a {
     .content-grid {
         grid-template-columns: 1fr;
     }
+}
+
+
+/*---------------------------------------------------------*/
+/* ライブセットページ*/
+/*---------------------------------------------------------*/
+
+
+/* アコーディオン全体（スキマなく連結する外枠） */
+.accordion-group {
+    border: 1px solid #22222a;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #121216;
+    margin-bottom: 3rem;
+}
+
+/* 各アーティストブロックの境目 */
+.accordion-item {
+    border-bottom: 1px solid #1a1a22;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+/* ヘッダーボタン（クリック部分） */
+.accordion-header {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    background-color: #0d0d11;
+    color: #ffffff;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-align: left;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.accordion-header:hover {
+    background-color: #181820;
+    color: #ffffff;
+}
+
+/* 開いている状態のヘッダー */
+.accordion-item.active .accordion-header {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* 矢印の回転アニメーション */
+.accordion-arrow {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-arrow {
+    transform: rotate(90deg); /* 展開時に矢印が下（または右斜め下）に回転 */
+}
+
+/* スライド展開エリア（高さのアニメーション制御） */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0, 1, 0, 1); /* 高さをなめらかにアニメーション */
+    background-color: #0a0a0c;
+}
+
+.accordion-body {
+    padding: 1.5rem;
+    border-top: 1px solid #22222a;
+}
+
+/* 開いた中の動画グリッド配置 */
+.liveset-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.liveset-card {
+    background-color: #121216;
+    padding: 1rem;
+    border: 1px solid #22222a;
+}
+
+.liveset-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 0.8rem;
+    letter-spacing: 1px;
 }

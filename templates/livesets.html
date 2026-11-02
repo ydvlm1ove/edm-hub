@@ -3,9 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EDM HUB - Livesets</title>
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-    
+
+    <!-- 1. トップヘッダー -->
+    <header class="navbar">
+        <div class="logo">EDM HUB</div>
+        <nav>
+            <ul>
+                <li><a href="/">TOP</a></li>
+                <li><a href="/artists">Artists</a></li>
+                <li><a href="/livesets" class="active">Livesets</a></li>
+                <li><a href="/my-records">Records</a></li>
+                <li><a href="/world">WorldFestival/Clubs</a></li>
+                <li><a href="/admin">admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="container">
+
+        <section class="page-header">
+            <h1 class="page-title">LIVE SETS</h1>
+            <p class="page-subtitle">ライブセット一覧</p><br>
+        </section>
+
+        <!-- 隙間なく連結されたアコーディオンリスト -->
+        <section class="accordion-group">
+
+            <!-- アーティスト 1: Swedish House Mafia -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="artist-name">SWEDISH HOUSE MAFIA</span>
+                    <span class="accordion-arrow">▶</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <div class="liveset-grid">
+                            <!-- 動画カード① -->
+                            <div class="card liveset-card">
+                                <div class="video-container">
+                                    <img class="top-video-img" src="https://img.youtube.com/vi/hA64dJhHbxY/maxresdefault.jpg" alt="SHM Live">
+                                    <a href="https://www.youtube.com/watch?v=hA64dJhHbxY" target="_blank" rel="noopener" class="play-btn">
+                                        ▶ WATCH ON YOUTUBE
+                                    </a>
+                                </div>
+                                <div class="liveset-details">
+                                    <h3 class="liveset-title">Head Trip 2026</h3>
+                                </div>
+                            </div>
+                            <!-- 動画カード② -->
+                            <div class="card liveset-card">
+                                <div class="video-container">
+                                    
+                                    <a href="https://youtu.be/byHTUyYS7bA?si=bqg926TIaY7JOLLx" target="_blank" rel="noopener" class="play-btn">
+                                        ▶ WATCH ON YOUTUBE
+                                    </a>
+                                </div>
+                                <div class="liveset-details">
+                                    <h3 class="liveset-title">Ultra Music Festival 2026</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- アーティスト 2: Martin Garrix -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="artist-name">👤 MARTIN GARRIX</span>
+                    <span class="accordion-arrow">▶</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <div class="liveset-grid">
+                            <div class="card liveset-card">
+                                <div class="video-container">
+                                    <img class="top-video-img" src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Martin Garrix">
+                                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener" class="play-btn">
+                                        ▶ WATCH ON YOUTUBE
+                                    </a>
+                                </div>
+                                <div class="liveset-details">
+                                    <h3 class="liveset-title">Live @ Tomorrowland 2024 Mainstage</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- アーティスト 3: Da Tweekaz -->
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="artist-name">👤 DA TWEEKAZ</span>
+                    <span class="accordion-arrow">▶</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-body">
+                        <div class="liveset-grid">
+                            <div class="card liveset-card">
+                                <div class="video-container">
+                                    <img class="top-video-img" src="https://img.youtube.com/vi/1_M3b9P_xXw/hqdefault.jpg" alt="Da Tweekaz">
+                                    <a href="https://www.youtube.com/watch?v=1_M3b9P_xXw" target="_blank" rel="noopener" class="play-btn">
+                                        ▶ WATCH ON YOUTUBE
+                                    </a>
+                                </div>
+                                <div class="liveset-details">
+                                    <h3 class="liveset-title">Live @ Defqon.1 2024</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- フッター -->
+    <footer class="bottom-site-footer">
+        <div class="spotify-banner">
+            <a href="https://open.spotify.com/" target="_blank" rel="noopener" class="spotify-link">
+                <span class="spotify-icon">🎵</span> LISTEN ON SPOTIFY
+            </a>
+        </div>
+        <p class="copyright">&copy; 2026 EDM HUB. Created for EDM Fans.</p>
+    </footer>
+
+    <!-- スライド開閉アニメーション用JavaScript -->
+    <script>
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const content = item.querySelector('.accordion-content');
+
+            // クリックされたアイテムのactive状態を反転（他のアイテムには干渉しない独立制御）
+            item.classList.toggle('active');
+
+            if (item.classList.contains('active')) {
+                // 中身のコンテンツ高さ（scrollHeight）を動的取得してスムーズに展開
+                content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                // 閉じる
+                content.style.maxHeight = "0px";
+            }
+        }
+    </script>
+
 </body>
 </html>
