@@ -767,3 +767,168 @@ a {
         gap: 0.8rem;
     }
 }
+
+
+/*-------------------------------------*/
+/*ワールドページ*/
+/*-------------------------------------*/
+
+
+/* 6州クイックナビゲーション */
+.region-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid #1a1a22;
+}
+
+.region-nav a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #121216;
+    border: 1px solid #22222a;
+    color: #888899;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.region-nav a:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+/* 州別セクション */
+.region-section {
+    margin-bottom: 4rem;
+}
+
+.region-title {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #ffffff;
+    display: inline-block;
+}
+
+/* フェス＆クラブカードグリッド */
+.festival-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.festival-card {
+    padding: 0;
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.festival-card:hover {
+    border-color: #555566;
+    transform: translateY(-4px);
+}
+
+/* カード画像ラッパー */
+.fest-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+.fest-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: brightness(85%);
+}
+
+.festival-card:hover .fest-img {
+    transform: scale(1.05);
+    filter: brightness(100%);
+}
+
+/* FESTIVAL / CLUB 種別バッジ */
+.type-badge {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    letter-spacing: 1px;
+}
+
+.type-badge.fest {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.type-badge.club {
+    background-color: #333344;
+    color: #ffffff;
+    border: 1px solid #555566;
+}
+
+/* カードテキスト部分 */
+.fest-content {
+    padding: 1.2rem;
+}
+
+.location-tag {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #888899;
+    letter-spacing: 1px;
+    margin-bottom: 0.3rem;
+}
+
+.fest-name {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin-bottom: 0.2rem;
+}
+
+.fest-date {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin-bottom: 0.6rem;
+}
+
+.fest-memo {
+    font-size: 0.8rem;
+    color: #aaaaee;
+    line-height: 1.4;
+}
+
+/* スマホ表示対応 */
+@media (max-width: 768px) {
+    .festival-grid {
+        grid-template-columns: 1fr;
+    }
+    .region-nav {
+        gap: 0.4rem;
+    }
+    .region-nav a {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.75rem;
+    }
+}

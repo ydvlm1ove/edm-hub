@@ -3,9 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EDM HUB - World Festivals & Clubs</title>
+    <!-- CSSファイルの読み込み -->
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-    
+
+    <!-- 1. トップヘッダー -->
+    <header class="navbar">
+        <div class="logo">EDM HUB</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">TOP</a></li>
+                <li><a href="artists.html">Artists</a></li>
+                <li><a href="livesets.html">Livesets</a></li>
+                <li><a href="my-records.html">Records</a></li>
+                <li><a href="world.html" class="active">WorldFestival/Clubs</a></li>
+                <li><a href="admin.html">admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="container">
+
+        <!-- ページヘッダー -->
+        <section class="page-header">
+            <h1 class="page-title">WORLD FESTIVALS & CLUBS 🌍</h1>
+            <p class="page-subtitle">Explore major EDM festivals and iconic clubs by continent</p>
+        </section>
+
+        <!-- 6州クイックナビゲーション -->
+        <nav class="region-nav">
+            <a href="#sec-asia">ASIA</a>
+            <a href="#sec-europe">EUROPE</a>
+            <a href="#sec-north-america">NORTH AMERICA</a>
+            <a href="#sec-south-america">SOUTH AMERICA</a>
+            <a href="#sec-oceania">OCEANIA</a>
+            <a href="#sec-africa">AFRICA</a>
+        </nav>
+
+        <!-- 6州別フェス＆クラブカタログ -->
+        <div class="world-catalog">
+
+            <!-- 【1. アジア (ASIA)】 -->
+            <section id="sec-asia" class="region-section">
+                <h2 class="region-title">ASIA 🌏</h2>
+                <div class="festival-grid">
+
+                    <!-- フェスカード 1 -->
+                    <div class="card festival-card">
+                        <div class="fest-image-wrapper">
+                            <img src="../static/img/festivals/ultra_japan.jpg" alt="Ultra Japan" class="fest-img" onerror="this.src='https://via.placeholder.com/400x220/121216/ffffff?text=Ultra+Japan'">
+                            <span class="type-badge fest">FESTIVAL</span>
+                        </div>
+                        <div class="fest-content">
+                            <span class="location-tag">🇯🇵 Japan / Tokyo (Odaiba)</span>
+                            <h3 class="fest-name">Ultra Japan</h3>
+                            <p class="fest-date">2026.09.19 - 09.20</p>
+                            <p class="fest-memo">日本最大級の都市型EDMフェス。お台場特設会場。</p>
+                        </div>
+                    </div>
+
+                    <!-- フェスカード 2 -->
+                    <div class="card festival-card">
+                        <div class="fest-image-wrapper">
+                            <img src="../static/img/festivals/wdjf.jpg" alt="World DJ Festival" class="fest-img" onerror="this.src='https://via.placeholder.com/400x220/121216/ffffff?text=WDJF'">
+                            <span class="type-badge fest">FESTIVAL</span>
+                        </div>
+                        <div class="fest-content">
+                            <span class="location-tag">🇰🇷 Korea / Seoul</span>
+                            <h3 class="fest-name">World DJ Festival</h3>
+                            <p class="fest-date">2026.06.01 - 06.02</p>
+                            <p class="fest-memo">韓国を代表する超大型EDMフェスティバル。</p>
+                        </div>
+                    </div>
+
+                    <!-- クラブカード 1 -->
+                    <div class="card festival-card">
+                        <div class="fest-image-wrapper">
+                            <img src="../static/img/clubs/zouk_singapore.jpg" alt="Zouk Singapore" class="fest-img" onerror="this.src='https://via.placeholder.com/400x220/121216/ffffff?text=Zouk+Singapore'">
+                            <span class="type-badge club">CLUB</span>
+                        </div>
+                        <div class="fest-content">
+                            <span class="location-tag">🇸🇬 Singapore</span>
+                            <h3 class="fest-name">Zouk Singapore</h3>
+                            <p class="fest-date">YEAR-ROUND</p>
+                            <p class="fest-memo">DJ Mag Top 100 Clubs常連のアジア最頂峰クラブ。</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 【2. ヨーロッパ (EUROPE)】 -->
+            <section id="sec-europe" class="region-section">
+                <h2 class="region-title">EUROPE 🏰</h2>
+                <div class="festival-grid">
+
+                    <div class="card festival-card">
+                        <div class="fest-image-wrapper">
+                            <img src="../static/img/festivals/tomorrowland.jpg" alt="Tomorrowland" class="fest-img" onerror="this.src='https://via.placeholder.com/400x220/121216/ffffff?text=Tomorrowland'">
+                            <span class="type-badge fest">FESTIVAL</span>
+                        </div>
+                        <div class="fest-content">
+                            <span class="location-tag">🇧🇪 Belgium / Boom</span>
+                            <h3 class="fest-name">Tomorrowland</h3>
+                            <p class="fest-date">2027.07.16 - 07.25</p>
+                            <p class="fest-memo">世界中のEDMファンが夢見る世界最高峰のおとぎ話フェス。</p>
+                        </div>
+                    </div>
+
+                    <div class="card festival-card">
+                        <div class="fest-image-wrapper">
+                            <img src="../static/img/clubs/ushuaia_ibiza.jpg" alt="Ushuaïa Ibiza" class="fest-img" onerror="this.src='https://via.placeholder.com/400x220/121216/ffffff?text=Ushuaia+Ibiza'">
+                            <span class="type-badge club">CLUB</span>
+                        </div>
+                        <div class="fest-content">
+                            <span class="location-tag">🇪🇸 Spain / Ibiza</span>
+                            <h3 class="fest-name">Ushuaïa Ibiza</h3>
+                            <p class="fest-date">SUMMER SEASON</p>
+                            <p class="fest-memo">イビサ島を代表するオープンエアの聖地オープンエアクラブ。</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 【3. 北米 (NORTH AMERICA)】 -->
+            <section id="sec-north-america" class="region-section">
+                <h2 class="region-title">NORTH AMERICA 🦅</h2>
+                <div class="festival-grid">
+
+                    <div class="card festival-card">
+                        <div class="fest-image-wrapper">
+                            <img src="../static/img/festivals/edc_lv.jpg" alt="EDC Las Vegas" class="fest-img" onerror="this.src='https://via.placeholder.com/400x220/121216/ffffff?text=EDC+Las+Vegas'">
+                            <span class="type-badge fest">FESTIVAL</span>
+                        </div>
+                        <div class="fest-content">
+                            <span class="location-tag">🇺🇸 USA / Las Vegas</span>
+                            <h3 class="fest-name">EDC Las Vegas</h3>
+                            <p class="fest-date">2027.05.21 - 05.23</p>
+                            <p class="fest-memo">夜から朝まで不眠不休で踊り明かす巨大エレクトロニック・カーニバル。</p>
+                        </div>
+                    </div>
+
+                    <div class="card festival-card">
+                        <div class="fest-image-wrapper">
+                            <img src="../static/img/festivals/umf_miami.jpg" alt="Ultra Music Festival" class="fest-img" onerror="this.src='https://via.placeholder.com/400x220/121216/ffffff?text=UMF+Miami'">
+                            <span class="type-badge fest">FESTIVAL</span>
+                        </div>
+                        <div class="fest-content">
+                            <span class="location-tag">🇺🇸 USA / Miami</span>
+                            <h3 class="fest-name">Ultra Music Festival (UMF)</h3>
+                            <p class="fest-date">2027.03.26 - 03.28</p>
+                            <p class="fest-memo">マイアミで開催される新曲・未発表ID披露の登竜門的メガフェス。</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 【4. 南米 (SOUTH AMERICA)】 -->
+            <section id="sec-south-america" class="region-section">
+                <h2 class="region-title">SOUTH AMERICA 💃</h2>
+                <div class="festival-grid">
+
+                    <div class="card festival-card">
+                        <div class="fest-image-wrapper">
+                            <img src="../static/img/festivals/tomorrowland_brasil.jpg" alt="Tomorrowland Brasil" class="fest-img" onerror="this.src='https://via.placeholder.com/400x220/121216/ffffff?text=Tomorrowland+Brasil'">
+                            <span class="type-badge fest">FESTIVAL</span>
+                        </div>
+                        <div class="fest-content">
+                            <span class="location-tag">🇧🇷 Brazil / Itu</span>
+                            <h3 class="fest-name">Tomorrowland Brasil</h3>
+                            <p class="fest-date">2026.10.10 - 10.12</p>
+                            <p class="fest-memo">南米ならではの情熱的な歓声と熱気が爆発するTomorrowlandスピンオフ。</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 【5. オセアニア (OCEANIA)】 -->
+            <section id="sec-oceania" class="region-section">
+                <h2 class="region-title">OCEANIA 🦘</h2>
+                <div class="festival-grid">
+
+                    <div class="card festival-card">
+                        <div class="fest-image-wrapper">
+                            <img src="../static/img/festivals/knockout_outdoor.jpg" alt="Knockout Outdoor" class="fest-img" onerror="this.src='https://via.placeholder.com/400x220/121216/ffffff?text=Knockout+Outdoor'">
+                            <span class="type-badge fest">FESTIVAL</span>
+                        </div>
+                        <div class="fest-content">
+                            <span class="location-tag">🇦🇺 Australia / Sydney</span>
+                            <h3 class="fest-name">Knockout Outdoor</h3>
+                            <p class="fest-date">2026.09.30</p>
+                            <p class="fest-memo">オーストリア最大級のHardstyle & Rawstyle特化モンスターフェス。</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 【6. アフリカ (AFRICA)】 -->
+            <section id="sec-africa" class="region-section">
+                <h2 class="region-title">AFRICA 🌅</h2>
+                <div class="festival-grid">
+
+                    <div class="card festival-card">
+                        <div class="fest-image-wrapper">
+                            <img src="../static/img/festivals/ultra_south_africa.jpg" alt="Ultra South Africa" class="fest-img" onerror="this.src='https://via.placeholder.com/400x220/121216/ffffff?text=Ultra+South+Africa'">
+                            <span class="type-badge fest">FESTIVAL</span>
+                        </div>
+                        <div class="fest-content">
+                            <span class="location-tag">🇿🇦 South Africa / Cape Town</span>
+                            <h3 class="fest-name">Ultra South Africa</h3>
+                            <p class="fest-date">2027.03.05 - 03.06</p>
+                            <p class="fest-memo">アフリカ大陸最大のエレクトロニックミュージックフェスティバル。</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- フッター -->
+    <footer class="bottom-site-footer">
+        <div class="spotify-banner">
+            <a href="https://open.spotify.com/" target="_blank" rel="noopener" class="spotify-link">
+                <span class="spotify-icon">🎵</span> LISTEN ON SPOTIFY
+            </a>
+        </div>
+        <p class="copyright">&copy; 2026 EDM HUB. Created for EDM Fans.</p>
+    </footer>
+
+    <!-- スムーススクロール制御等のJS -->
+    <script src="../static/js/main.js"></script>
+
 </body>
 </html>
