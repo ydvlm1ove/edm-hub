@@ -3,9 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EDM HUB - My Records</title>
+    <!-- CSSファイルの読み込み -->
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-    
+
+    <!-- 1. トップヘッダー -->
+    <header class="navbar">
+        <div class="logo">EDM HUB</div>
+        <nav>
+            <ul>
+                <li><a href="/">TOP</a></li>
+                <li><a href="/artists">Artists</a></li>
+                <li><a href="/livesets">Livesets</a></li>
+                <li><a href="/my-records" class="active">Records</a></li>
+                <li><a href="/world">WorldFestival/Clubs</a></li>
+                <li><a href="/admin">admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="container">
+
+        <!-- ページヘッダー -->
+        <section class="page-header">
+            <h1 class="page-title">MY RECORDS & UNLOCKED ARTISTS 🏆</h1>
+            <p class="page-subtitle">Track your live experiences and festival history</p>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- ① コレクト率 ＆ 生見た人アンロック図鑑     -->
+        <!-- ========================================== -->
+        <section class="records-section">
+            
+            <!-- コレクト率ダッシュボード -->
+            <div class="card status-dashboard">
+                <div class="dash-item">
+                    <span class="dash-label">TOTAL ARTISTS</span>
+                    <span class="dash-value">42 <span class="unit">名</span></span>
+                </div>
+                <div class="dash-divider"></div>
+                <div class="dash-item">
+                    <span class="dash-label">SEEN LIVE (UNLOCKED)</span>
+                    <span class="dash-value highlight">18 <span class="unit">名</span></span>
+                </div>
+                <div class="dash-divider"></div>
+                <div class="dash-item">
+                    <span class="dash-label">COLLECTION RATE</span>
+                    <span class="dash-value">42.8 <span class="unit">%</span></span>
+                </div>
+            </div>
+
+            <h2 class="section-subtitle">ARTIST COLLECTION GRID</h2>
+
+            <!-- 生見た人カードグリッド（Jinja2ループ受容構造） -->
+            <div class="unlocked-grid">
+
+                <!-- 1. 生で見られたアーティスト (UNLOCKED) -->
+                <div class="artist-card unlocked">
+                    <div class="card-image-wrapper">
+                        <img src="../static/img/artists/afrojack.jpg" alt="Afrojack" class="artist-img" onerror="this.src='https://via.placeholder.com/300x300/121216/ffffff?text=Afrojack'">
+                        <span class="status-badge unlocked">UNLOCKED</span>
+                        <div class="artist-overlay">
+                            <span class="artist-name">Afrojack</span>
+                            <span class="seen-date">First seen: Ultra Japan 2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. 未鑑賞アーティスト (LOCKED) -->
+                <div class="artist-card locked">
+                    <div class="card-image-wrapper">
+                        <img src="../static/img/artists/alesso.jpg" alt="Alesso" class="artist-img" onerror="this.src='https://via.placeholder.com/300x300/121216/ffffff?text=Alesso'">
+                        <span class="status-badge locked">LOCKED</span>
+                        <div class="artist-overlay">
+                            <span class="artist-name">Alesso</span>
+                            <span class="seen-date">Not seen yet</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. 生で見られたアーティスト (UNLOCKED) -->
+                <div class="artist-card unlocked">
+                    <div class="card-image-wrapper">
+                        <img src="../static/img/artists/shm.jpg" alt="Swedish House Mafia" class="artist-img" onerror="this.src='https://via.placeholder.com/300x300/121216/ffffff?text=SHM'">
+                        <span class="status-badge unlocked">UNLOCKED</span>
+                        <div class="artist-overlay">
+                            <span class="artist-name">Swedish House Mafia</span>
+                            <span class="seen-date">First seen: Ultra Japan 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. 未鑑賞アーティスト (LOCKED) -->
+                <div class="artist-card locked">
+                    <div class="card-image-wrapper">
+                        <img src="../static/img/artists/skrillex.jpg" alt="Skrillex" class="artist-img" onerror="this.src='https://via.placeholder.com/300x300/121216/ffffff?text=Skrillex'">
+                        <span class="status-badge locked">LOCKED</span>
+                        <div class="artist-overlay">
+                            <span class="artist-name">Skrillex</span>
+                            <span class="seen-date">Not seen yet</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- ② フェス参戦アーカイブ (参戦記録ログ)       -->
+        <!-- ========================================== -->
+        <section class="fest-history-section">
+            <h2 class="section-subtitle">FESTIVAL HISTORY & LOGS</h2>
+
+            <div class="history-list">
+
+                <!-- ログカード 1 -->
+                <div class="card history-card">
+                    <div class="history-header">
+                        <div class="fest-main-info">
+                            <span class="history-date">2024.09.14 - 09.15</span>
+                            <h3 class="history-title">Ultra Japan 2024</h3>
+                            <span class="history-location">🇯🇵 Japan / Tokyo (Odaiba)</span>
+                        </div>
+                        <span class="attended-badge">ATTENDED</span>
+                    </div>
+
+                    <div class="history-body">
+                        <div class="history-block">
+                            <h4>TIMETABLE & SETS MEMO 📝</h4>
+                            <p class="history-text">
+                                • Day 1: Afrojack (Mainstage) - 新曲ID連発で最高の盛り上がり！<br>
+                                • Day 2: Swedish House Mafia - レーザー演出と『Don't You Worry Child』で大合唱。一生の思い出。
+                            </p>
+                        </div>
+                        <div class="history-block">
+                            <h4>MEMORIES & NOTES 💭</h4>
+                            <p class="history-text">
+                                天候にも恵まれ最高のリベンジ開催。次回はTomorrowland参戦に向けて渡航費用とVVIPチケットの準備をスタートする。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ログカード 2 -->
+                <div class="card history-card">
+                    <div class="history-header">
+                        <div class="fest-main-info">
+                            <span class="history-date">2024.01.27</span>
+                            <h3 class="history-title">GMO SONIC 2024</h3>
+                            <span class="history-location">🇯🇵 Japan / Saitama Super Arena</span>
+                        </div>
+                        <span class="attended-badge">ATTENDED</span>
+                    </div>
+
+                    <div class="history-body">
+                        <div class="history-block">
+                            <h4>TIMETABLE & SETS MEMO 📝</h4>
+                            <p class="history-text">
+                                • Zedd / Steve Aoki - たまアリ室内で重低音爆音。冬のフェスとして最高。
+                            </p>
+                        </div>
+                        <div class="history-block">
+                            <h4>MEMORIES & NOTES 💭</h4>
+                            <p class="history-text">
+                                アリーナ中央前方のサークルで大暴れ。物販のフーディーも無事GET。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- フッター -->
+    <footer class="bottom-site-footer">
+        <div class="spotify-banner">
+            <a href="https://open.spotify.com/" target="_blank" rel="noopener" class="spotify-link">
+                <span class="spotify-icon">🎵</span> LISTEN ON SPOTIFY
+            </a>
+        </div>
+        <p class="copyright">&copy; 2026 EDM HUB. Created for EDM Fans.</p>
+    </footer>
+
 </body>
 </html>
