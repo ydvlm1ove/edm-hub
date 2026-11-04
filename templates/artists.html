@@ -3,9 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EDM HUB - Artists</title>
+    <!-- CSSファイルの読み込み -->
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-    
+
+    <!-- 1. トップヘッダー -->
+    <header class="navbar">
+        <div class="logo">EDM HUB</div>
+        <nav>
+            <ul>
+                <li><a href="/">TOP</a></li>
+                <li><a href="/artists" class="active">Artists</a></li>
+                <li><a href="/livesets">Livesets</a></li>
+                <li><a href="/my-records">Records</a></li>
+                <li><a href="/world">WorldFestival/Clubs</a></li>
+                <li><a href="/admin">admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="container">
+
+        <!-- ページヘッダー -->
+        <section class="page-header">
+            <h1 class="page-title">ARTIST CATALOG</h1>
+            <p class="page-subtitle">Alphabetical Index</p>
+        </section>
+
+        <!-- A-Z アルファベットクイックナビゲーション -->
+        <nav class="alphabet-nav">
+            <a href="#sec-A">A</a>
+            <a href="#sec-B">B</a>
+            <a href="#sec-C">C</a>
+            <a href="#sec-D">D</a>
+            <a href="#sec-G">G</a>
+            <a href="#sec-H">H</a>
+            <a href="#sec-K">K</a>
+            <a href="#sec-M">M</a>
+            <a href="#sec-S">S</a>
+            <a href="#sec-Z">Z</a>
+        </nav>
+
+        <!-- アルファベット別セクション群 -->
+        <div class="artist-catalog">
+
+            <!-- 【セクション A】 -->
+            <section id="sec-A" class="alphabet-section">
+                <h2 class="section-letter">A</h2>
+                <div class="artist-grid">
+
+                    <!-- アーティストカード 1 -->
+                    <div class="artist-card">
+                        <div class="card-image-wrapper">
+                            <img src="../static/img/artists/afrojack.jpg" alt="Afrojack" class="artist-img" onerror="this.src='https://via.placeholder.com/300x300/121216/ffffff?text=Afrojack'">
+                            <!-- ホバー時に下からスライドしてくる名前オーバーレイ -->
+                            <div class="artist-overlay">
+                                <span class="artist-name">Afrojack</span>
+                                <span class="artist-status">UNLOCKED</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- アーティストカード 2 -->
+                    <div class="artist-card">
+                        <div class="card-image-wrapper">
+                            <img src="../static/img/artists/alesso.jpg" alt="Alesso" class="artist-img" onerror="this.src='https://via.placeholder.com/300x300/121216/ffffff?text=Alesso'">
+                            <div class="artist-overlay">
+                                <span class="artist-name">Alesso</span>
+                                <span class="artist-status locked">LOCKED</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- アーティストカード 3 -->
+                    <div class="artist-card">
+                        <div class="card-image-wrapper">
+                            <img src="../static/img/artists/angerfist.jpg" alt="Angerfist" class="artist-img" onerror="this.src='https://via.placeholder.com/300x300/121216/ffffff?text=Angerfist'">
+                            <div class="artist-overlay">
+                                <span class="artist-name">Angerfist</span>
+                                <span class="artist-status locked">LOCKED</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 【セクション B】 -->
+            <section id="sec-B" class="alphabet-section">
+                <h2 class="section-letter">B</h2>
+                <div class="artist-grid">
+
+                    <div class="artist-card">
+                        <div class="card-image-wrapper">
+                            <img src="../static/img/artists/bassjackers.jpg" alt="Bassjackers" class="artist-img" onerror="this.src='https://via.placeholder.com/300x300/121216/ffffff?text=Bassjackers'">
+                            <div class="artist-overlay">
+                                <span class="artist-name">Bassjackers</span>
+                                <span class="artist-status">UNLOCKED</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 【セクション S】 -->
+            <section id="sec-S" class="alphabet-section">
+                <h2 class="section-letter">S</h2>
+                <div class="artist-grid">
+
+                    <div class="artist-card">
+                        <div class="card-image-wrapper">
+                            <img src="../static/img/artists/shm.jpg" alt="Swedish House Mafia" class="artist-img" onerror="this.src='https://via.placeholder.com/300x300/121216/ffffff?text=SHM'">
+                            <div class="artist-overlay">
+                                <span class="artist-name">Swedish House Mafia</span>
+                                <span class="artist-status">UNLOCKED</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="artist-card">
+                        <div class="card-image-wrapper">
+                            <img src="../static/img/artists/skrillex.jpg" alt="Skrillex" class="artist-img" onerror="this.src='https://via.placeholder.com/300x300/121216/ffffff?text=Skrillex'">
+                            <div class="artist-overlay">
+                                <span class="artist-name">Skrillex</span>
+                                <span class="artist-status locked">LOCKED</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="artist-card">
+                        <div class="card-image-wrapper">
+                            <img src="../static/img/artists/steve_aoki.jpg" alt="Steve Aoki" class="artist-img" onerror="this.src='https://via.placeholder.com/300x300/121216/ffffff?text=Steve+Aoki'">
+                            <div class="artist-overlay">
+                                <span class="artist-name">Steve Aoki</span>
+                                <span class="artist-status">UNLOCKED</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- フッター -->
+    <footer class="bottom-site-footer">
+        <div class="spotify-banner">
+            <a href="https://open.spotify.com/" target="_blank" rel="noopener" class="spotify-link">
+                <span class="spotify-icon">🎵</span> LISTEN ON SPOTIFY
+            </a>
+        </div>
+        <p class="copyright">&copy; 2026 EDM HUB. Created for EDM Fans.</p>
+    </footer>
+
+    <!-- スムーススクロール制御等のJS -->
+    <script src="../static/js/main.js"></script>
+
 </body>
 </html>
