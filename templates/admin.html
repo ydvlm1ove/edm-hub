@@ -3,9 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EDM HUB - Admin Management</title>
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
+
+    <!-- 1. トップヘッダー -->
+    <header class="navbar">
+        <div class="logo">EDM HUB</div>
+        <nav>
+            <ul>
+                <li><a href="/">TOP</a></li>
+                <li><a href="/artists">Artists</a></li>
+                <li><a href="/livesets">Livesets</a></li>
+                <li><a href="/my-records">Records</a></li>
+                <li><a href="/world">WorldFestival/Clubs</a></li>
+                <li><a href="/admin" class="active">admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="container">
+
+        <section class="page-header">
+            <h1 class="page-title">DATA MANAGEMENT ⚙️</h1>
+            <p class="page-subtitle">Add, update, or remove artists and live sets</p>
+        </section>
+
+        <!-- 管理エリア（2カラム構成） -->
+        <div class="admin-grid">
+
+            <!-- 左側: 新規追加・編集フォーム -->
+            <section class="card admin-form-section">
+                <h2 class="admin-section-title" id="form-title">ADD NEW ARTIST ➕</h2>
+                
+                <form id="artist-form" action="/admin/artist/save" method="POST" class="admin-form">
+                    <!-- 編集時にIDを保持する非表示フィールド -->
+                    <input type="hidden" id="artist-id" name="artist_id" value="">
+
+                    <div class="form-group">
+                        <label for="artist-name">ARTIST NAME *</label>
+                        <input type="text" id="artist-name" name="name" placeholder="e.g. Swedish House Mafia" required class="admin-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="artist-status">STATUS (SEEN LIVE?)</label>
+                        <select id="artist-status" name="is_seen" class="admin-select">
+                            <option value="0">LOCKED (未鑑賞)</option>
+                            <option value="1">UNLOCKED (生で見られた)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="artist-description">DESCRIPTION / MEMO</label>
+                        <textarea id="artist-description" name="description" rows="4" placeholder="紹介文や推しポイント、メモ..." class="admin-textarea"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">SAVE ARTIST</button>
+                        <button type="button" id="btn-cancel" class="btn-secondary" onclick="resetForm()" style="display: none;">CANCEL</button>
+                    </div>
+                </form>
+
+                <hr class="admin-divider">
+
+                <!-- ライブセット追加フォーム -->
+                <h2 class="admin-section-title">ADD LIVE SET 🎬</h2>
+                <form action="/admin/liveset/add" method="POST" class="admin-form">
+                    <div class="form-group">
+                        <label for="target-artist">SELECT ARTIST *</label>
+                        <select id="target-artist" name="artist_id" required class="admin-select">
+                            <option value="">-- アーティストを選択 --</option>
+                            <option value="1">Swedish House Mafia</option>
+                            <option value="2">Martin Garrix</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="liveset-title">SET TITLE *</label>
+                        <input type="text" id="liveset-title" name="title" placeholder="e.g. Live @ Tomorrowland 2024" required class="admin-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="youtube-url">YOUTUBE URL *</label>
+                        <input type="url" id="youtube-url" name="youtube_url" placeholder="https://www.youtube.com/watch?v=..." required class="admin-input">
+                    </div>
+
+                    <button type="submit" class="btn-primary">ADD LIVE SET</button>
+                </form>
+            </section>
+
+            <!-- 右側: 登録データ一覧 & 操作リスト -->
+            <section class="card admin-list-section">
+                <h2 class="admin-section-title">REGISTERED ARTISTS LIST 📋</h2>
+
+                <div class="admin-table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>NAME</th>
+                                <th>STATUS</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- アーティスト行 1 -->
+                            <tr data-id="1">
+                                <td class="tbl-name">Swedish House Mafia</td>
+                                <td><span class="status-badge unlocked">UNLOCKED</span></td>
+                                <td class="tbl-actions">
+                                    <button class="btn-sm btn-edit" onclick="editArtist(1, 'Swedish House Mafia', 1, '伝説の3人組ユニット。')">EDIT</button>
+                                    <form action="/admin/artist/delete/1" method="POST" class="inline-form" onsubmit="return confirm('本当に削除しますか？');">
+                                        <button type="submit" class="btn-sm btn-delete">DELETE</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <!-- アーティスト行 2 -->
+                            <tr data-id="2">
+                                <td class="tbl-name">Alesso</td>
+                                <td><span class="status-badge locked">LOCKED</span></td>
+                                <td class="tbl-actions">
+                                    <button class="btn-sm btn-edit" onclick="editArtist(2, 'Alesso', 0, 'メロディック・プログレッシブハウスの貴公子。')">EDIT</button>
+                                    <form action="/admin/artist/delete/2" method="POST" class="inline-form" onsubmit="return confirm('本当に削除しますか？');">
+                                        <button type="submit" class="btn-sm btn-delete">DELETE</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- フッター -->
+    <footer class="bottom-site-footer">
+        <p class="copyright">&copy; 2026 EDM HUB. Created for EDM Fans.</p>
+    </footer>
     
 </body>
 </html>

@@ -52,3 +52,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// 管理ページ
+
+function editArtist(id, name, isSeen, description) {
+    document.getElementById('form-title').textContent = 'EDIT ARTIST ✏️';
+    document.getElementById('artist-id').value = id;
+    document.getElementById('artist-name').value = name;
+    document.getElementById('artist-status').value = isSeen;
+    document.getElementById('artist-description').value = description;
+    document.getElementById('btn-cancel').style.display = 'inline-block';
+    }
+
+// フォームのリセット（キャンセル時）
+function resetForm() {
+    document.getElementById('form-title').textContent = 'ADD NEW ARTIST ➕';
+    document.getElementById('artist-form').reset();
+    document.getElementById('artist-id').value = '';
+    document.getElementById('btn-cancel').style.display = 'none';
+    }
